@@ -1,0 +1,76 @@
+{
+  "name": "dynamsoft-code-parser",
+  "version": "2.0.20",
+  "description": "Dynamsoft Code Parser JavaScript Edition is equipped with industry-leading algorithms for exceptional speed and accuracy in code parsing.",
+  "files": [
+    "/dist/*.js",
+    "/dist/types/**",
+    "/dist/*.wasm",
+    "/dist/*.json",
+    "/dist/specification/**",
+    "/API Reference.url",
+    "/LEGAL.txt",
+    "/samples.url"
+  ],
+  "main": "./dist/dcp.js",
+  "module": "./dist/dcp.esm.js",
+  "exports": {
+    "import": "./dist/dcp.esm.js",
+    "require": "./dist/dcp.js"
+  },
+  "sideEffects": true,
+  "types": "./dist/types/dcp.d.ts",
+  "scripts": {
+    "build": "rollup -c --environment BUILD:production",
+    "update:readme": "updateReadme --package=dynamsoft-code-parser --version=latest --html",
+    "update:prod": "updatePackage --package=dynamsoft-code-parser --version=auto --env=production --tag=latest",
+    "update:beta": "updatePackage --package=dynamsoft-code-parser --version=auto --env=beta --tag=beta",
+    "update:iv": "updatePackage --package=dynamsoft-code-parser --version=auto --env=internalVersion --tag=iv",
+    "update:dev": "updatePackage --package=dynamsoft-code-parser --version=auto --env=development --tag=latest",
+    "updateLink:npm": "updateLink --source=npm",
+    "updateLink:zip": "updateLink --source=zip",
+    "updateLink:github": "updateLink --source=github",
+    "updateCore:prod": "updateImportedPkg --package=dynamsoft-core --no-dev",
+    "updateCore:dev": "updateImportedPkg --package=dynamsoft-core --dev",
+    "updateCvr:prod": "updateImportedPkg --package=dynamsoft-capture-vision-router --no-dev",
+    "makeZip": "makeZip --package=dynamsoft-code-parser --version=auto --sampleBranch=_dev --structure=new --otherPkgs=dynamsoft-capture-vision-std dynamsoft-core dynamsoft-license",
+    "makeZip_dev": "makeZip --package=dynamsoft-code-parser --version=auto --sampleBranch=_dev --structure=new --otherPkgs=@dynamsoft/dynamsoft-capture-vision-std @dynamsoft/dynamsoft-core @dynamsoft/dynamsoft-license",
+    "easyPublish": "npm run update:dev && npm i @dynamsoft/dynamsoft-core@latest && npm run build && npm publish",
+    "ep-no-core": "npm run update:dev && npm run build && npm publish"
+  },
+  "keywords": [
+    "HTML5 code parser",
+    "JavaScript code parser",
+    "Web code parser",
+    "code parser",
+    "SDK",
+    "WebAssembly"
+  ],
+  "author": {
+    "name": "Dynamsoft",
+    "url": "https://www.dynamsoft.com"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "repository": {},
+  "devDependencies": {
+    "@dynamsoft/rd2-scripts": "^0.1.8",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@scannerproxy/curscript-path": "^2.0.1",
+    "@types/node": "^20.7.1",
+    "dynamsoft-capture-vision-router": "^2.0.30",
+    "mutable-promise": "^1.1.13",
+    "rollup": "^2.79.1",
+    "tslib": "^2.6.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "dynamsoft-core": "^3.0.30"
+  }
+}
