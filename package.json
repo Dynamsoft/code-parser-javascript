@@ -1,6 +1,6 @@
 {
   "name": "dynamsoft-code-parser",
-  "version": "2.0.20",
+  "version": "2.2.10",
   "description": "Dynamsoft Code Parser JavaScript Edition is equipped with industry-leading algorithms for exceptional speed and accuracy in code parsing.",
   "files": [
     "/dist/*.js",
@@ -15,8 +15,14 @@
   "main": "./dist/dcp.js",
   "module": "./dist/dcp.esm.js",
   "exports": {
-    "import": "./dist/dcp.esm.js",
-    "require": "./dist/dcp.js"
+    ".": {
+      "types": {
+        "require": "./dist/types/dcp.d.cts",
+        "import": "./dist/types/dcp.d.ts"
+      },
+      "import": "./dist/dcp.esm.js",
+      "require": "./dist/dcp.js"
+    }
   },
   "sideEffects": true,
   "types": "./dist/types/dcp.d.ts",
@@ -36,7 +42,9 @@
     "makeZip": "makeZip --package=dynamsoft-code-parser --version=auto --sampleBranch=_dev --structure=new --otherPkgs=dynamsoft-capture-vision-std dynamsoft-core dynamsoft-license",
     "makeZip_dev": "makeZip --package=dynamsoft-code-parser --version=auto --sampleBranch=_dev --structure=new --otherPkgs=@dynamsoft/dynamsoft-capture-vision-std @dynamsoft/dynamsoft-core @dynamsoft/dynamsoft-license",
     "easyPublish": "npm run update:dev && npm i @dynamsoft/dynamsoft-core@latest && npm run build && npm publish",
-    "ep-no-core": "npm run update:dev && npm run build && npm publish"
+    "ep-no-core": "npm run update:dev && npm run build && npm publish",
+    "overridesCore:prod": "npm pkg delete overrides.dynamsoft-core && npm pkg set dependencies.dynamsoft-core=\"^3.2.10\"",
+    "overridesCore:dev": "npm pkg set overrides.dynamsoft-core=$dynamsoft-core && npm pkg set dependencies.dynamsoft-core=npm:@dynamsoft/dynamsoft-core@latest && npm update dynamsoft-core --no-package-lock"
   },
   "keywords": [
     "HTML5 code parser",
@@ -55,9 +63,18 @@
     "tag": "latest"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dynamsoft/code-parser-javascript.git"
+  },
+  "maintainers": [
+    {
+      "name": "Dynamsoft",
+      "email": "support@dynamsoft.com"
+    }
+  ],
   "devDependencies": {
-    "@dynamsoft/rd2-scripts": "^0.1.8",
+    "@dynamsoft/rd2-scripts": "^0.1.15",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.3",
@@ -71,6 +88,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "dynamsoft-core": "^3.0.30"
-  }
+    "dynamsoft-core": "^3.2.10"
+  },
+  "overrides": {}
 }
