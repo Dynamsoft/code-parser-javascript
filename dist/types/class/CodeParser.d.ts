@@ -1,32 +1,44 @@
 import { ParsedResultItem } from "../interface/ParsedResultItem";
 export default class CodeParser {
     private _instanceID;
-    private _checkIsDisposed;
     /**
-     * Core and license modules are required even when DCP is used stand-alone.
-     * Keep createInstance() without CVR
+     * Initializes a new instance of the `CodeParser` class.
+     *
+     * @returns A promise that resolves with the initialized `CodeParser` instance.
      */
     static createInstance(): Promise<CodeParser>;
+    /**
+     * Releases all resources used by the `CodeParser` instance.
+     *
+     * @returns A promise that resolves when the resources have been successfully released. It does not provide any value upon resolution.
+     */
     dispose(): Promise<void>;
     /**
-     * Returns whether the instance has been disposed.
+     * Returns whether the `CodeParser` instance has been disposed of.
+     *
+     * @returns Boolean indicating whether the `CodeParser` instance has been disposed of.
      */
     protected bDestroyed: boolean;
     get disposed(): boolean;
     /**
-     * @param settings A JSON string that represents the content of the settings.
+     * Configures runtime settings using a provided JSON string.
+     * @param settings A JSON string that represents the content of the settings which contain at least one `CodeParserTaskSetting` object.
      *
-     * We can have some built-in templates to use
+     * @returns A promise that resolves when the operation has completed. It does not provide any value upon resolution.
      */
     initSettings(settings: string): Promise<void>;
-    /** InitSettingsFromFile is not supported by JS DCP yet */
+    /**
+     * Restores all runtime settings to their original default values.
+     *
+     * @returns A promise that resolves when the operation has completed. It does not provide any value upon resolution.
+     */
     resetSettings(): Promise<void>;
     /**
-     * Uint8Array means the array of bytes or the string to parse.
+     * Parses a single string or a `Uint8Array` object to be human-readable.
+     * @param source Specifies the string or the `Uint8Array` object.
+     * @param taskSettingName [Optional] Specifies a `CodeParserTaskSetting` to use.
+     *
+     * @returns A promise that resolves with a `ParsedResultItem` object which contains the parsed result.
      */
     parse(source: Uint8Array | string, taskSettingName?: string): Promise<ParsedResultItem>;
-    /**
-     * In order to support incoming string format data, the string needs to be converted to binary
-     */
-    private _stringToUint8Array;
 }

@@ -38,9 +38,9 @@ The complete code of the "Hello World" example is shown below:
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.0.20/dist/dcp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.2.10/dist/dcp.js"></script>
 </head>
 <body>
 <div
@@ -108,7 +108,7 @@ Please note:
 
 - Although the page should work properly when opened directly as a file ("file:///"), it's recommended that you deploy it to a web server and access it via HTTPS.
 - On first use, you need to wait a few seconds for the SDK to initialize.
-- The license "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" used in this sample is an online license good for 24 hours and requires network connection to work. To test the SDK further, you can request a 30-day trial license via the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?utm_source=npm&architecture=dcv&product=dcp&package=js).
+- The license "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" used in this sample is an online license good for 24 hours and requires network connection to work. To test the SDK further, you can request a 30-day trial license via the [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?utm_source=github&architecture=dcv&product=dcp&package=js).
 
 If the test doesn't go as expected, you can [contact us](https://www.dynamsoft.com/company/customer-service/#contact).
 
@@ -123,17 +123,17 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 * jsDelivr
 
     ```html
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.0.20/dist/dcp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.2.10/dist/dcp.js"></script>
     ```
 
 * UNPKG  
 
     ```html
-    <script src="https://unpkg.com/dynamsoft-core@3.0.30/dist/core.js"></script>
-    <script src="https://unpkg.com/dynamsoft-license@3.0.20/dist/license.js"></script>
-    <script src="https://unpkg.com/dynamsoft-code-parser@2.0.20/dist/dcp.js"></script>
+    <script src="https://unpkg.com/dynamsoft-core@3.2.10/dist/core.js"></script>
+    <script src="https://unpkg.com/dynamsoft-license@3.2.10/dist/license.js"></script>
+    <script src="https://unpkg.com/dynamsoft-code-parser@2.2.10/dist/dcp.js"></script>
     ```
 
 #### Host the SDK yourself
@@ -144,31 +144,31 @@ Options to download the SDK:
 
 - From the website
 
-  [Download the JavaScript ZIP package](https://www.dynamsoft.com/code-parser/downloads/?ver=2.0.20&utm_source=npm)
+  Sign in the [Customer Portal](https://www.dynamsoft.com/customer/index?utm_source=docs&product=dcp) and Download the JavaScript ZIP package
 
 * yarn
 
     ```cmd
-    yarn add dynamsoft-core@3.0.30 --save
-    yarn add dynamsoft-license@3.0.20 --save
-    yarn add dynamsoft-code-parser@2.0.20 --save
+    yarn add dynamsoft-core@3.2.10 --save
+    yarn add dynamsoft-license@3.2.10 --save
+    yarn add dynamsoft-code-parser@2.2.10 --save
     ```
 
 * npm
 
     ```cmd
-    npm install dynamsoft-core@3.0.30 --save
-    npm install dynamsoft-license@3.0.20 --save
-    npm install dynamsoft-code-parser@2.0.20 --save
+    npm install dynamsoft-core@3.2.10 --save
+    npm install dynamsoft-license@3.2.10 --save
+    npm install dynamsoft-code-parser@2.2.10 --save
     ```
 
 Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
 
 ```html
 <!-- Upon extracting the zip package into your project, you can generally include it in the following manner -->
-<script src="./dynamsoft/distributables/dynamsoft-core@3.0.30/dist/core.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-license@3.0.20/dist/license.js"></script>
-<script src="./dynamsoft/distributables/dynamsoft-code-parser@2.0.20/dist/dcp.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-core@3.2.10/dist/core.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-license@3.2.10/dist/license.js"></script>
+<script src="./dynamsoft/distributables/dynamsoft-code-parser@2.2.10/dist/dcp.js"></script>
 ```
 
 or
@@ -195,7 +195,7 @@ Before using the SDK, you need to configure a few things.
 The SDK requires a license to work, use the method `Dynamsoft.License.LicenseManager.initLicense` to specify the license key.
 
 ```javascript
-//You can visit https://www.dynamsoft.com/customer/license/trialLicense?utm_source=npm&product=dcp&package=js to get your own trial license good for 30 days. 
+//You can visit https://www.dynamsoft.com/customer/license/trialLicense?utm_source=github&product=dcp&package=js to get your own trial license good for 30 days. 
 Dynamsoft.License.LicenseManager.initLicense("YOUR-LICENSE-KEY");
 ```
 
@@ -207,9 +207,9 @@ The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.
 
 ```javascript
 //The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
-Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/";
-Dynamsoft.Core.CoreModule.engineResourcePaths.dcp = "https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.0.20/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/";
+Dynamsoft.Core.CoreModule.engineResourcePaths.dcp = "https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.2.10/dist/";
 ```
 
 ### Interact with the SDK
