@@ -51,6 +51,7 @@ yarn.lock
 /temp
 /public
 /README.html
+/templates
 
 !/legal.txt
 !/README.md
